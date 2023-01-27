@@ -19,5 +19,9 @@ class Kuntoilija:
         self.ika = ika
         self.sukupuoli = sukupuoli
 
-        
+if __name__ == "__main__":
+    
+    # Luodaan olio luokasta Kuntolija
+    Kuntoilija = kuntoilijat('kalle kuntoilija', 175, 77, 46, 1)
+    print(Kuntoilija.nimi, 'painaa', Kuntoilija.painaa)
 
