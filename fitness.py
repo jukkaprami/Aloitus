@@ -59,7 +59,7 @@ def lapsen_rasvaprosentti(bmi,ika,sukupuoli):
     Args:
         bmi (float): painoindeksi
         ika (float): ika
-        sukupuoli (sukupuoli): 1 > mies, 0 > nainen
+        sukupuoli (sukupuoli): 1 > poika, 0 > tyttö
 
         Returns:
             float: kehon rasvaprosentti (lapsi)
@@ -69,4 +69,11 @@ def lapsen_rasvaprosentti(bmi,ika,sukupuoli):
     return lapsen_rasvaprosentti
 
 oma_bmi = laske_bmi (paino,pituus)
-oma_rasvaprosentti = lapsen_rasvaprosentti(oma_bmi, ika, sukupuoli)
+
+if ika >= 18:
+    oma_rasvaprosentti = aikuisen_rasvaprosentti(oma_bmi, ika, sukupuoli)
+else:
+    oma_rasvaprosentti = lapsen_rasvaprosentti(oma_bmi, ika, sukupuoli)
+
+print('painoindeksisi on', oma_bmi,
+     'ja kehon rasvaprosentti on', oma_rasvaprosentti)
