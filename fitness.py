@@ -1,10 +1,6 @@
 # SOVELLUS PAINOINDEKSIN JA KEHON RASVAPROSENTIN LASKEMISEEN
 # ==========================================================
 
-# Muuttujat
-
-
-
 
 # Määritellään funktio painoindeksin laskentaan
 def laske_bmi(paino, pituus):
@@ -22,7 +18,7 @@ def laske_bmi(paino, pituus):
     bmi= round (bmi, 1)
     return bmi
 
-
+# määritellään funktio aikuisen rasvaprosentin laskemiseen
 def aikuisen_rasvaprosentti(bmi,ika,sukupuoli):
     """_summary_
 
@@ -41,7 +37,7 @@ def aikuisen_rasvaprosentti(bmi,ika,sukupuoli):
 
 
 
-
+# määritellään funktio lapsen rasvaprosentin laskemiseen.
 def lapsen_rasvaprosentti(bmi,ika,sukupuoli):
     """_summary_
 
@@ -82,5 +78,5 @@ if __name__ == "__main__":
     else:
         oma_rasvaprosentti = lapsen_rasvaprosentti(oma_bmi, ika, sukupuoli)
 
-print('painoindeksisi on', oma_bmi,
+    print('painoindeksisi on', oma_bmi,
      'ja kehon rasvaprosentti on', oma_rasvaprosentti)
