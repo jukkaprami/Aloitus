@@ -20,6 +20,6 @@ def test_aikuisen_rasvaprosentti():
     assert fitness.aikuisen_rasvaprosentti(13.8, 40, 0) == 20.4
     assert fitness.aikuisen_rasvaprosentti(34.6, 70, 0) == 52.2
 
-def lapsen_rasvaprosentti():
+def test_lapsen_rasvaprosentti():
     assert fitness.lapsen_rasvaprosentti(24.4, 14, 0) == 28.4
     assert fitness.lapsen_rasvaprosentti(24.4, 14, 1) == 24.8
