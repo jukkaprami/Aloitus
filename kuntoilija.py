@@ -5,6 +5,7 @@
 # -------------------
 
 import fitness
+import math
 
 # Luokkamääritykset (class of definitons)
 # -----------------
@@ -28,6 +29,56 @@ class Kuntoilija:
     def rasvaprosentti(self):
         self.rasvaprosentti = fitness.aikuisen_rasvaprosentti(self.bmi, self.ika, self.sukupuoli)
         return self.rasvaprosentti
+    
+def usa_rasvaprosentti_mies(self, pituus, vyotaron_ymparys, kaulan_ymparys):
+    """laske miehen rasvaprosentin USA:n armeijan kaavalla
+
+    Args:
+    pituus (float): pituus (cm)
+    vyotaron_ymparys (float): vyotaron ympärysmitta (cm)
+    kaulan_ymparys (float): kaulan ympärysmitta (cm)
+
+    Returns:
+    float: rasvaprosentti
+    """
+
+    fitness.usarasvaprosentti_mies(pituus,vyotaron_ymparys,kaulan_ymparys)
+
+    # Muutetaan mitat tuumiksi
+    tuumaa_pituus = pituus / 2.5
+    tuumaa_vyotaron_ymparys = vyotaron_ymparys / 2.5
+    tuumaa_kaulan_ymparys = kaulan_ymparys / 2.5
+
+    # Laskentaan rasvaprosentti
+
+    usarprosentti = 86.010 * math.log10(tuumaa_vyotaron_ymparys - tuumaa_kaulan_ymparys) - 70.041 * math.log10(tuumaa_pituus) + 36.76
+    return usarprosentti
+
+def usa_rasvaprosentti_nanen(self, pituus,vyotaron_ymparys,kaulan_ymparys,lantion_ymparys):
+    """Laske naisen rasvaprosentti USA:n armeijan kaavalla
+
+    Args:
+        pituus (float): pituus (cm)
+        vyotaron_ymparys (float): vyotaron ympärysmitta (cm)
+        kaulan_ymparys (float): kaulan ympärysmitta (cm)
+        lantion_ymparys (float)): lantion ymprärysmitta (cm)
+
+    Returns:
+        float : rasvaprosentti
+    """
+    
+    fitness.usarasvaprosentti_nainen(pituus, lantion_ymparys, vyotaron_ymparys, kaulan_ymparys)
+
+    # Muutetaan mitat tuumiksi
+    tuumaa_pituus = pituus / 2.5
+    tuumaa_vyotaron_ymparys = vyotaron_ymparys / 2.5
+    tuumaa_kaulan_ymparys = kaulan_ymparys / 2.5
+    tuumaa_lantion_ymparys = lantion_ymparys / 2.5
+
+    # Lasketaan rasvaprosentti
+
+    usarprosentti = 163.205 * math.log10(tuumaa_vyotaron_ymparys + tuumaa_kaulan_ymparys - tuumaa_lantion_ymparys) - 97.684 * math.log10(tuumaa_pituus) + 78.387
+    return usarprosentti
 
 # JunioriKuntoilija luokka Kuntoilija luokan yliluokka (subclass)
 class JunioriKuntoilija(Kuntoilija):
