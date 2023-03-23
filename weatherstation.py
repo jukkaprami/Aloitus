@@ -1,3 +1,4 @@
+from microbit import *
 weather = input('Mitä sääennuste lupaa? (vettä/lunta/aurinkoista)')
 #Ensimmäinen ehto
 if(weather=='vettä'):
